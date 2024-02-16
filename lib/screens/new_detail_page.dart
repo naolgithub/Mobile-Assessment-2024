@@ -22,14 +22,13 @@ class _NewDetailPageState extends State<NewDetailPage> {
   @override
   void initState() {
     _inBookmarkFunc();
-    // TODO: implement initState
     super.initState();
   }
 
   Future<void> _inBookmarkFunc() async {
     _inBookmarks = await BookmarkService().inBookmarks(widget.newModel);
     setState(() {});
-    print(_inBookmarks);
+    debugPrint(_inBookmarks.toString());
   }
 
   @override
