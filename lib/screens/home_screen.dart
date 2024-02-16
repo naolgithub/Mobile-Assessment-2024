@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/models/new_model.dart';
-import 'package:flutter_news_app/screens/search_screen.dart';
+import 'package:flutter_news_app/screens/ano_serach_screen.dart';
 import 'package:flutter_news_app/widgets/drawer_widget.dart';
 import 'package:flutter_news_app/widgets/home/all_news.dart';
 import 'package:flutter_news_app/widgets/home/tab_item.dart';
@@ -33,16 +33,16 @@ class _HomeState extends State<Home> {
             Padding(
               padding: const EdgeInsets.only(right: 20.0),
               child: IconButton(
-                  onPressed: () {
-                    showSearch(
-                        context: context, delegate: SearchScreen());
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (c) => const SearchScreen()));
-                  },
-                  icon: const Icon(
-                    Icons.search,
-                    size: 30,
-                  )),
+                onPressed: () {
+                  // showSearch(context: context, delegate: SearchScreen());
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (c) => const SearchBarApp()));
+                },
+                icon: const Icon(
+                  Icons.search,
+                  size: 30,
+                ),
+              ),
             ),
           ],
         ),
