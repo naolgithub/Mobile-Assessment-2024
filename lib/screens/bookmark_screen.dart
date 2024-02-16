@@ -17,7 +17,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    BookmarkService().getbookmarks();
     super.initState();
   }
 
@@ -26,7 +26,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: AppBar(
-        title: const NewsAppTitle(),
+        title: const Text("BookMarks")
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -65,7 +65,9 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                 itemCount: snapshot.data!.length,
               );
             } else {
-              return Container();
+              return const Center(
+                child: Text("No Bookmarks"),
+              );
             }
           },
         ),
