@@ -18,7 +18,7 @@ class APIService {
         "q": q,
         "page": page,
       });
-     
+
       if (response.statusCode == 200) {
         List<NewModel> news =
             response.data['articles'].map<NewModel>((article) {
