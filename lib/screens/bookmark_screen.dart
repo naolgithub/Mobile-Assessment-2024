@@ -40,6 +40,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
             }
             if (snapshot.hasData) {
               _likedMap = List.generate(snapshot.data!.length, (index) => true);
+              final _bookmarks = snapshot.data;
               return ListView.builder(
                 itemBuilder: (context, index) {
                   return Stack(
@@ -50,7 +51,9 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                         onPressed: () {
                           setState(() {
                             _likedMap[index] = !_likedMap[index];
-                            print(_likedMap[index]);
+                            
+                            BookmarkService()
+                                .toggleBookmark(_bookmarks![index]);
                           });
                         },
                         icon: Icon(

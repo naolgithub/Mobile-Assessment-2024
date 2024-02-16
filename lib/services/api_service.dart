@@ -40,4 +40,29 @@ class APIService {
     }).toList();
     return news;
   }
+
+
+  // Search Api
+  Future<List<NewModel>> fetchSearch({String? searchQuery,String? from}) async {
+    try {
+      Response response = await dio.get("/everything", queryParameters: {
+        "q": searchQuery,
+        "from":from,
+      });
+     
+      if (response.statusCode == 200) {
+        List<NewModel> news =
+            response.data['articles'].map<NewModel>((article) {
+          return NewModel.fromJson(article);
+        }).toList();
+        return news;
+      } 
+      else {
+        throw Exception("Error Searching Articles");
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
 }
