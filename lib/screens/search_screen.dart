@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/screens/another_search_screen.dart';
 import 'package:flutter_news_app/services/api_service.dart';
 
 class SearchScreen extends SearchDelegate<String> {
@@ -7,9 +6,7 @@ class SearchScreen extends SearchDelegate<String> {
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-        onPressed: () {
-          const NewsPage();
-        }
+        onPressed: () => query = '',
         icon: const Icon(Icons.clear),
       ),
     ];
