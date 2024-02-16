@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/models/new_model.dart';
-import 'package:flutter_news_app/screens/new_detail_page.dart';
-import 'package:flutter_news_app/services/api_service.dart';
+
+import '../../models/new_model.dart';
+import '../../screens/new_detail_page.dart';
+import '../../services/api_service.dart';
 
 class AllNews extends StatefulWidget {
   const AllNews({super.key});
@@ -167,7 +168,7 @@ class HomeNewItem extends StatelessWidget {
               child: Row(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                     child: Image.network(
                       newModel.urlToImage,
                       width: 100,
