@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
         textTheme: GoogleFonts.poppinsTextTheme(),
         primaryColor: Colors.pink,
         primarySwatch: Colors.pink,
-        primaryIconTheme: IconThemeData(color: Colors.pink),
+        primaryIconTheme: const IconThemeData(color: Colors.pink),
         primaryColorLight: Colors.pink,
       ),
       debugShowCheckedModeBanner: false,
