@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/models/new_model.dart';
 import 'package:flutter_news_app/services/api_service.dart';
 
 // class SearchScreen extends StatefulWidget {
 //   const SearchScreen({super.key});
-
+//
 //   @override
 //   State<SearchScreen> createState() => _SearchScreenState();
 // }
@@ -46,9 +45,9 @@ class SearchScreen extends SearchDelegate<String> {
           );
         }
         if (snapshot.hasData) {
-          final _articles = snapshot.data;
-          if (_articles!.length < 1) {
-            return Center(
+          final articles = snapshot.data;
+          if (articles!.isEmpty) {
+            return const Center(
               child: Text("No results found!"),
             );
           }
@@ -57,15 +56,15 @@ class SearchScreen extends SearchDelegate<String> {
               child: Row(
                 children: [
                   Image.network(
-                    _articles![index].urlToImage,
+                    articles[index].urlToImage,
                     height: 100,
                   ),
                   Expanded(
                       child: Column(
                     children: [
-                      Text(_articles[index].title, maxLines: 1),
-                      Text('Author: ${_articles[index].author}', maxLines: 1),
-                      Text(_articles[index].description, maxLines: 2),
+                      Text(articles[index].title, maxLines: 1),
+                      Text('Author: ${articles[index].author}', maxLines: 1),
+                      Text(articles[index].description, maxLines: 2),
                     ],
                   ))
                 ],
@@ -73,7 +72,7 @@ class SearchScreen extends SearchDelegate<String> {
             ),
           );
         }
-        return Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }
@@ -90,19 +89,19 @@ class SearchScreen extends SearchDelegate<String> {
           );
         }
         if (snapshot.hasData) {
-          final _articles = snapshot.data;
-          if (_articles!.isEmpty) {
+          final articles = snapshot.data;
+          if (articles!.isEmpty) {
             return const Center(
               child: Text("No results found!"),
             );
           }
           return ListView.builder(
             itemBuilder: (context, index) => ListTile(
-              title: Text(_articles[index].title),
+              title: Text(articles[index].title),
             ),
           );
         }
-        return Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }
